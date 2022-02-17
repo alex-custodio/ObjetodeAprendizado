@@ -29,11 +29,18 @@ window.configure(bg = "#798896")
 def tab1():
     global canvas, entry_image_1, entry_bg_1, entry_1, button_image_1, button_1, image_image_1, image_1, image_image_2, image_2, image_image_3, image_3
     def tab2():
-        global l, frame, img, canvas2, image_image_4, image_4
+        global l, frame, img, canvas2, image_image_4, image_4, canvas3, button_4, button_5, button_6, button_image_5, button_image_4, button_image_6
         if entry_1.get() != "":
-            entry_1.destroy(), button_1.destroy(), canvas.destroy()
             #resgatar e exibir nome do usuário
             
+            
+            entry_1.destroy(), button_1.destroy(), canvas.destroy()
+            
+
+
+
+
+
             def sair():
                 window.destroy()
             canvas3 = Canvas(
@@ -103,7 +110,7 @@ def tab1():
                 height=35.0
             )
 
-            canvas.create_text(231.0,305.0,anchor="nw",text="IDADE MÉDIA",fill="#FFFFFF",font=("RibeyeMarrow Regular", 36 * -1))
+            canvas3.create_text(231.0,305.0,anchor="nw",text="IDADE MÉDIA",fill="#FFFFFF",font=("RibeyeMarrow Regular", 36 * -1))
         else:
             
                 
