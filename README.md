@@ -16,5 +16,21 @@
 <img src="screenshots/s1.png">
 
 ### Segunda tela
-<<<<<<< HEAD
+
 <img src="screenshots/s2.png">
+
+### Terceira tela
+<img src="screenshots/s3.png">
+
+### Quarta tela
+<img src="screenshots/s4.png">
+
+### Quinta tela
+<img src="screenshots/s5.png">
+
+### Sexta tela
+<img src="screenshots/s6.png">
+
+### Sétima tela
+<img src="screenshots/s7.png">
+
