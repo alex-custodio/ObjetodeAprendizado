@@ -28,7 +28,7 @@ def tab1():
     def tab2():
         global l, frame, img, canvas2, image_image_4, image_4, canvas3, button_4, button_5, button_6, button_image_5, button_image_4, button_image_6
         if entry_1.get() != "":
-            #resgatar e exibir nome do usuário
+            #apagar itens para recriar a tela
             
             
             entry_1.destroy(), button_1.destroy(), canvas.destroy()
@@ -37,9 +37,10 @@ def tab1():
 
 
 
-
+            
             def sair():
                 window.destroy()
+            #criação dos elementos da segunda tela
             canvas3 = Canvas(
                 window,
                 bg = "#7A8997",
@@ -111,13 +112,13 @@ def tab1():
         else:
             
                 
-                 
+            #Alerta para caso o usuário esqueça de colocar o nome     
             canvas2 = Canvas(window, width = 165, height = 93, bg="red", bd=0, relief = "ridge")  
             canvas2.pack()  
             img = ImageTk.PhotoImage(Image.open("alert.png"))  
             canvas2.create_image(0, 0, anchor=NW, image=img) 
         
-           
+    #criação da primeira tela       
     canvas = Canvas(
         window,
         bg = "#798896",
