@@ -16,4 +16,5 @@
 <img src="screenshots/s1.png">
 
 ### Segunda tela
+<<<<<<< HEAD
 <img src="screenshots/s2.png">
