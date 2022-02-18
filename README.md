@@ -15,5 +15,5 @@
 ### Primeira Tela
 <img src="screenshots/s1.png">
 
-### Srgunda tela
+### Segunda tela
 <img src="screenshots/s2.png">
