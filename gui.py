@@ -1,13 +1,13 @@
 
 
-from faulthandler import disable
+
 from pathlib import Path
 from tkinter import *
 from turtle import bgcolor 
 from PIL import ImageTk,Image 
 # from tkinter import *
 # Explicit imports to satisfy Flake8
-from tkinter import DISABLED, Tk, Canvas, Entry, Text, Button, PhotoImage, Label, Frame
+from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage, Label, Frame
 
 
 OUTPUT_PATH = Path(__file__).parent
