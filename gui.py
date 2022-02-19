@@ -1,12 +1,11 @@
 
 
 
+
 from pathlib import Path
 from tkinter import *
-from turtle import bgcolor 
+from tkinter import scrolledtext 
 from PIL import ImageTk,Image 
-# from tkinter import *
-# Explicit imports to satisfy Flake8
 from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage, Label, Frame
 
 
@@ -22,7 +21,10 @@ window = Tk()
 window.title("Objeto de Aprendizagem")
 window.geometry("720x480")
 window.configure(bg = "#798896")
-
+global buttonClicked, score, windowDestroyd
+buttonClicked = False
+score = 0
+windowDestroyed = True
 def tab1():
     global canvas, entry_image_1, entry_bg_1, entry_1, button_image_1, button_1, image_image_1, image_1, image_image_2, image_2, image_image_3, image_3, tab2
     def tab2():
@@ -38,7 +40,119 @@ def tab1():
 
 
             def tab2_creation():
-                global image_image_4, image_4, canvas3, button_4, button_5, button_6, button_image_5, button_image_4, button_image_6
+                global image_image_4, image_4, canvas3, button_4, button_5, button_6, button_image_5, button_image_4, button_image_6, q1
+                def q1():
+                    global image_10, image_image_10, canvas9, button_10, button_image_10, button_11, button_image_11, button_12, button_image_12, button_14, button_image_14, button_13, button_image_13, respostas, buttonClicked, score
+                    respostas = []
+                    def q2c():
+                        respostas.append(True)
+                        canvas9.destroy(), button_13.destroy(), button_11.destroy(), button_10.destroy(), button_12.destroy(), button_14.destroy(), button_4.destroy(), button_5.destroy(), button_6.destroy(), canvas3.destroy()   
+                        print(respostas)
+                    def q2e():
+                        respostas.append(False)
+                        canvas9.destroy(), button_13.destroy(), button_11.destroy(), button_10.destroy(), button_12.destroy(), button_14.destroy()
+                        print(respostas)
+                    canvas9 = Canvas(
+                        window,
+                        bg = "#FFFFFF",
+                        height = 480,
+                        width = 720,
+                        bd = 0,
+                        highlightthickness = 0,
+                        relief = "ridge"
+                    )
+
+                    canvas9.place(x = 0, y = 0)
+                    image_image_10 = PhotoImage(
+                        file=relative_to_assets("image_10.png"))
+                    image_10 = canvas9.create_image(
+                        360.0,
+                        240.0,
+                        image=image_image_10
+                    )
+
+                    button_image_10 = PhotoImage(
+                        file=relative_to_assets("button_10.png"))
+                    button_10 = Button(
+                        image=button_image_10,
+                        borderwidth=0,
+                        highlightthickness=0,
+                        command=q2e,
+                        relief="flat"
+                    )
+                    button_10.place(
+                        x=171.0,
+                        y=295.0,
+                        width=179.0,
+                        height=35.0
+                    )
+
+                    button_image_11 = PhotoImage(
+                        file=relative_to_assets("button_11.png"))
+                    button_11 = Button(
+                        image=button_image_11,
+                        borderwidth=0,
+                        highlightthickness=0,
+                        command=lambda: print("button_2 clicked"),
+                        relief="flat"
+                    )
+                    button_11.place(
+                        x=370.0,
+                        y=295.0,
+                        width=205.05068969726562,
+                        height=35.0
+                    )
+
+                    button_image_12 = PhotoImage(
+                        file=relative_to_assets("button_12.png"))
+                    button_12 = Button(
+                        image=button_image_12,
+                        borderwidth=0,
+                        highlightthickness=0,
+                        command=lambda: print("button_3 clicked"),
+                        relief="flat"
+                    )
+                    button_12.place(
+                        x=286.0,
+                        y=237.0,
+                        width=128.0,
+                        height=35.0
+                    )
+
+                    button_image_13 = PhotoImage(
+                        file=relative_to_assets("button_13.png"))
+                    button_13 = Button(
+                        image=button_image_13,
+                        borderwidth=0,
+                        highlightthickness=0,
+                        command=lambda: print("button_4 clicked"),
+                        relief="flat"
+                    )
+                    button_13.place(
+                        x=440.0,
+                        y=236.0,
+                        width=184.8038330078125,
+                        height=36.0
+                    )
+
+                    button_image_14 = PhotoImage(
+                        file=relative_to_assets("button_14.png"))
+                    button_14 = Button(
+                        image=button_image_14,
+                        borderwidth=0,
+                        command=q2c,
+                        highlightthickness=0,
+                        
+                        relief="flat"
+                    )
+                    button_14.place(
+                        x=106.0,
+                        y=237.0,
+                        width=128.0,
+                        height=35.0
+                    )
+                    
+                            
                 canvas3 = Canvas(
                     window,
                     bg = "#7A8997",
@@ -80,7 +194,7 @@ def tab1():
                     image=button_image_5,
                     borderwidth=0,
                     highlightthickness=0,
-                    command=lambda: print("button_5 clicked"),
+                    command=q1,
                     relief="flat"
                 )
                 button_5.place(
@@ -363,7 +477,10 @@ def tab1():
                     height=34.637298583984375
                 )
             def sair():
+                global windowDestroyed
+                windowDestroyed = False
                 window.destroy()
+                
             #criação dos elementos da segunda tela
             tab2_creation()
             
@@ -467,5 +584,10 @@ def tab1():
 tab1()
 
 window.resizable(False, False)
-
-window.mainloop()
+while(windowDestroyed == True):
+    
+    def on_closing():
+        global windowDestroyed
+        windowDestroyed = False
+    window.protocol("WM_DELETE_WINDOW", on_closing)
+    window.update()
