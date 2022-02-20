@@ -6,7 +6,7 @@ from pathlib import Path
 from tkinter import *
 from tkinter import scrolledtext 
 from PIL import ImageTk,Image 
-from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage, Label, Frame
+from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage, Label, Frame, messagebox
 
 
 OUTPUT_PATH = Path(__file__).parent
@@ -21,9 +21,7 @@ window = Tk()
 window.title("Objeto de Aprendizagem")
 window.geometry("720x480")
 window.configure(bg = "#798896")
-global buttonClicked, score, windowDestroyd
-buttonClicked = False
-score = 0
+
 windowDestroyed = True
 def tab1():
     global canvas, entry_image_1, entry_bg_1, entry_1, button_image_1, button_1, image_image_1, image_1, image_image_2, image_2, image_image_3, image_3, tab2
@@ -42,15 +40,357 @@ def tab1():
             def tab2_creation():
                 global image_image_4, image_4, canvas3, button_4, button_5, button_6, button_image_5, button_image_4, button_image_6, q1
                 def q1():
-                    global image_10, image_image_10, canvas9, button_10, button_image_10, button_11, button_image_11, button_12, button_image_12, button_14, button_image_14, button_13, button_image_13, respostas, buttonClicked, score
+                    global image_10, image_image_10, canvas9, button_10, button_image_10, button_11, button_image_11, button_12, button_image_12, button_14, button_image_14, button_13, button_image_13, respostas
                     respostas = []
+                    def q2_creation():
+                        global canvas10, image_11, image_image_11, button_15, button_16, button_17, button_18, button_19, button_image_15, button_image_16, button_image_17, button_image_18, button_image_19
+                        def q3_creation():
+                            global canvas, image_image_1, image_1, button_1, button_image_1, button_image_2, button_3, button_image_3
+                            def q4c_creation():
+                                global canvas, image_1, image_image_1, button_image_1, button_image_2, button_2
+                                def q5_creation():
+                                    global canvas17, image_image_1, image_1, button_1, button_2, button_image_2, button_image_3, button_3, button_image_1
+                                    def finalc():
+                                        respostas.append(True)
+                                        canvas17.destroy(), button_1.destroy(), button_2.destroy(), button_3.destroy()
+                                        tab2_creation()
+                                        auxT = 0
+                                        auxF = 0
+                                        for i in respostas:
+                                            if i == True:
+                                                auxT +=1
+                                            else:
+                                                auxF += 1
+                                        messagebox.showinfo("Gabarito", f"{nome}, você acertou {auxT} e errou {auxF} respostas")
+                                        print(respostas)  
+                                    def finale():
+                                        respostas.append(False)
+                                        canvas17.destroy(), button_1.destroy(), button_2.destroy(), button_3.destroy()
+                                        tab2_creation()
+                                        auxT = 0
+                                        auxF = 0
+                                        for i in respostas:
+                                            if i == True:
+                                                auxT +=1
+                                            else:
+                                                auxF += 1
+                                        messagebox.showinfo("Gabarito", f"{nome}, você acertou {auxT} questões e errou {auxF} questões") 
+                                        print(respostas)  
+                                    canvas17 = Canvas(
+                                        window,
+                                        bg = "#FFFFFF",
+                                        height = 480,
+                                        width = 720,
+                                        bd = 0,
+                                        highlightthickness = 0,
+                                        relief = "ridge"
+                                    )
+
+
+                                    canvas17.place(x = 0, y = 0)
+                                    image_image_1 = PhotoImage(
+                                        file=relative_to_assets("image_14.png"))
+                                    image_1 = canvas17.create_image(
+                                        360.0,
+                                        240.0,
+                                        image=image_image_1
+                                    )
+
+                                    button_image_1 = PhotoImage(
+                                        file=relative_to_assets("button_25.png"))
+                                    button_1 = Button(
+                                        image=button_image_1,
+                                        borderwidth=0,
+                                        highlightthickness=0,
+                                        command=finale,
+                                        relief="flat"
+                                    )
+                                    button_1.place(
+                                        x=106.0,
+                                        y=237.0,
+                                        width=130.0,
+                                        height=40.0
+                                    )
+
+                                    button_image_2 = PhotoImage(
+                                        file=relative_to_assets("button_26.png"))
+                                    button_2 = Button(
+                                        image=button_image_2,
+                                        borderwidth=0,
+                                        highlightthickness=0,
+                                        command=finalc,
+                                        relief="flat"
+                                    )
+                                    button_2.place(
+                                        x=267.0,
+                                        y=236.0,
+                                        width=130.0,
+                                        height=40.0
+                                    )
+
+                                    button_image_3 = PhotoImage(
+                                        file=relative_to_assets("button_27.png"))
+                                    button_3 = Button(
+                                        image=button_image_3,
+                                        borderwidth=0,
+                                        highlightthickness=0,
+                                        command=finale,
+                                        relief="flat"
+                                    )
+                                    button_3.place(
+                                        x=428.0,
+                                        y=237.0,
+                                        width=130.0,
+                                        height=40.0
+                                    )
+                                def q5c():
+                                    respostas.append(True)
+                                    q5_creation()
+                                    print(respostas)
+                                def q5e():
+                                    respostas.append(False)
+                                    q5_creation()
+                                    print(respostas)
+                                canvas = Canvas(
+                                    window,
+                                    bg = "#FFFFFF",
+                                    height = 480,
+                                    width = 720,
+                                    bd = 0,
+                                    highlightthickness = 0,
+                                    relief = "ridge"
+                                )
+                                canvas.place(x = 0, y = 0)
+                                image_image_1 = PhotoImage(
+                                    file=relative_to_assets("image_13.png"))
+                                image_1 = canvas.create_image(
+                                    360.0,
+                                    240.0,
+                                    image=image_image_1
+                                )
+
+                                button_image_1 = PhotoImage(
+                                    file=relative_to_assets("button_23.png"))
+                                button_1 = Button(
+                                    image=button_image_1,
+                                    borderwidth=0,
+                                    highlightthickness=0,
+                                    command=q5c,
+                                    relief="flat"
+                                )
+                                button_1.place(
+                                    x=107.0,
+                                    y=315.0,
+                                    width=578.0,
+                                    height=55.0
+                                )
+
+                                button_image_2 = PhotoImage(
+                                    file=relative_to_assets("button_24.png"))
+                                button_2 = Button(
+                                    image=button_image_2,
+                                    borderwidth=0,
+                                    highlightthickness=0,
+                                    command=q5e,
+                                    relief="flat"
+                                )
+                                button_2.place(
+                                    x=106.0,
+                                    y=237.0,
+                                    width=579.0,
+                                    height=53.0
+                                )
+                                
+                            def q4c():
+                                    canvas.destroy(), button_1.destroy(), button_2.destroy()
+                                    respostas.append(True)
+                                    q4c_creation()
+                            def q4e():
+                                    canvas.destroy(), button_1.destroy(), button_2.destroy()
+                                    respostas.append(False) 
+                                    q4c_creation()   
+                            canvas = Canvas(
+                                window,
+                                bg = "#FFFFFF",
+                                height = 480,
+                                width = 720,
+                                bd = 0,
+                                highlightthickness = 0,
+                                relief = "ridge"
+                            )
+
+                            canvas.place(x = 0, y = 0)
+                            image_image_1 = PhotoImage(
+                                file=relative_to_assets("image_12.png"))
+                            image_1 = canvas.create_image(
+                                360.0,
+                                240.0,
+                                image=image_image_1
+                            )
+
+                            button_image_1 = PhotoImage(
+                                file=relative_to_assets("button_20.png"))
+                            button_1 = Button(
+                                image=button_image_1,
+                                borderwidth=0,
+                                highlightthickness=0,
+                                command=q4e,
+                                relief="flat"
+                            )
+                            button_1.place(
+                                x=107.0,
+                                y=315.0,
+                                width=578.0,
+                                height=35.0
+                            )
+
+                            button_image_2 = PhotoImage(
+                                file=relative_to_assets("button_21.png"))
+                            button_2 = Button(
+                                image=button_image_2,
+                                borderwidth=0,
+                                highlightthickness=0,
+                                command=q4e,
+                                relief="flat"
+                            )
+                            button_2.place(
+                                x=107.0,
+                                y=376.0,
+                                width=578.0,
+                                height=35.0
+                            )
+
+                            button_image_3 = PhotoImage(
+                                file=relative_to_assets("button_22.png"))
+                            button_3 = Button(
+                                image=button_image_3,
+                                borderwidth=0,
+                                highlightthickness=0,
+                                command=q4c,
+                                relief="flat"
+                            )
+                            button_3.place(
+                                x=106.0,
+                                y=237.0,
+                                width=579.0,
+                                height=53.0
+                            )
+                            
+                        def q3c():
+                            respostas.append(True)
+                            canvas10.destroy(), button_15.destroy(), button_16.destroy(), button_17.destroy(), button_18.destroy(), button_19.destroy()
+                            q3_creation()
+                        def q3e():
+                            respostas.append(False)
+                            canvas10.destroy(), button_15.destroy(), button_16.destroy(), button_17.destroy(), button_18.destroy(), button_19.destroy()
+                            q3_creation()
+                        canvas10 = Canvas(
+                            window,
+                            bg = "#FFFFFF",
+                            height = 480,
+                            width = 720,
+                            bd = 0,
+                            highlightthickness = 0,
+                            relief = "ridge"
+                        )
+
+                        canvas10.place(x = 0, y = 0)
+                        image_image_11 = PhotoImage(
+                            file=relative_to_assets("image_11.png"))
+                        image_11 = canvas10.create_image(
+                            360.0,
+                            240.0,
+                            image=image_image_11
+                        )
+
+                        button_image_15 = PhotoImage(
+                            file=relative_to_assets("button_15.png"))
+                        button_15 = Button(
+                            image=button_image_15,
+                            borderwidth=0,
+                            highlightthickness=0,
+                            command=q3c,
+                            relief="flat"
+                        )
+                        button_15.place(
+                            x=171.0,
+                            y=295.0,
+                            width=179.0,
+                            height=35.0
+                        )
+
+                        button_image_16 = PhotoImage(
+                            file=relative_to_assets("button_16.png"))
+                        button_16 = Button(
+                            image=button_image_16,
+                            borderwidth=0,
+                            highlightthickness=0,
+                            command=q3e,
+                            relief="flat"
+                        )
+                        button_16.place(
+                            x=370.0,
+                            y=295.0,
+                            width=145.0,
+                            height=35.0
+                        )
+
+                        button_image_17 = PhotoImage(
+                            file=relative_to_assets("button_17.png"))
+                        button_17 = Button(
+                            image=button_image_17,
+                            borderwidth=0,
+                            highlightthickness=0,
+                            command=q3e,
+                            relief="flat"
+                        )
+                        button_17.place(
+                            x=286.0,
+                            y=237.0,
+                            width=128.0,
+                            height=35.0
+                        )
+
+                        button_image_18 = PhotoImage(
+                            file=relative_to_assets("button_18.png"))
+                        button_18 = Button(
+                            image=button_image_18,
+                            borderwidth=0,
+                            highlightthickness=0,
+                            command=q3e,
+                            relief="flat"
+                        )
+                        button_18.place(
+                            x=440.0,
+                            y=236.0,
+                            width=184.8038330078125,
+                            height=36.0
+                        )
+
+                        button_image_19 = PhotoImage(
+                            file=relative_to_assets("button_19.png"))
+                        button_19 = Button(
+                            image=button_image_19,
+                            borderwidth=0,
+                            highlightthickness=0,
+                            command=q3e,
+                            relief="flat"
+                        )
+                        button_19.place(
+                            x=106.0,
+                            y=237.0,
+                            width=128.0,
+                            height=35.0
+                        )
                     def q2c():
                         respostas.append(True)
-                        canvas9.destroy(), button_13.destroy(), button_11.destroy(), button_10.destroy(), button_12.destroy(), button_14.destroy(), button_4.destroy(), button_5.destroy(), button_6.destroy(), canvas3.destroy()   
+                        canvas9.destroy(), button_13.destroy(), button_11.destroy(), button_10.destroy(), button_12.destroy(), button_14.destroy(), button_4.destroy(), button_5.destroy(), button_6.destroy(), canvas3.destroy()
+                        q2_creation()   
                         print(respostas)
                     def q2e():
                         respostas.append(False)
-                        canvas9.destroy(), button_13.destroy(), button_11.destroy(), button_10.destroy(), button_12.destroy(), button_14.destroy()
+                        canvas9.destroy(), button_13.destroy(), button_11.destroy(), button_10.destroy(), button_12.destroy(), button_14.destroy(), button_6.destroy(), canvas3.destroy(), button_4.destroy(), button_5.destroy()
+                        q2_creation()
                         print(respostas)
                     canvas9 = Canvas(
                         window,
@@ -93,7 +433,7 @@ def tab1():
                         image=button_image_11,
                         borderwidth=0,
                         highlightthickness=0,
-                        command=lambda: print("button_2 clicked"),
+                        command=q2e,
                         relief="flat"
                     )
                     button_11.place(
@@ -109,7 +449,7 @@ def tab1():
                         image=button_image_12,
                         borderwidth=0,
                         highlightthickness=0,
-                        command=lambda: print("button_3 clicked"),
+                        command=q2e,
                         relief="flat"
                     )
                     button_12.place(
@@ -125,7 +465,7 @@ def tab1():
                         image=button_image_13,
                         borderwidth=0,
                         highlightthickness=0,
-                        command=lambda: print("button_4 clicked"),
+                        command=q2e,
                         relief="flat"
                     )
                     button_13.place(
