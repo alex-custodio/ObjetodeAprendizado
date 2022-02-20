@@ -449,7 +449,7 @@ def tab1():
                         image=button_image_12,
                         borderwidth=0,
                         highlightthickness=0,
-                        command=q2e,
+                        command=q2c,
                         relief="flat"
                     )
                     button_12.place(
@@ -480,7 +480,7 @@ def tab1():
                     button_14 = Button(
                         image=button_image_14,
                         borderwidth=0,
-                        command=q2c,
+                        command=q2e,
                         highlightthickness=0,
                         
                         relief="flat"
